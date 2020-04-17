@@ -1,9 +1,18 @@
 import wrapEl from "./utils/wrapEl";
 
+const DEFAULT_OPTIONS = {
+    selector: "[data-transition-height]",
+    transitionSpeed: "500ms",
+};
+
 class TransitionHeight {
-    constructor(el) {
+    constructor(el, options) {
         this.height = null;
         this.el = el;
+        this.options = {
+            ...DEFAULT_OPTIONS,
+            ...options,
+        };
         this.outer = document.createElement("div");
         this.inner = document.createElement("div");
         this.init();
@@ -13,7 +22,7 @@ class TransitionHeight {
     init = () => {
         this.outer.classList.add("transition-height-outer");
         this.inner.classList.add("transition-height-inner");
-        this.outer.style.transition = "200ms ease all";
+        this.outer.style.transition = `${this.options.transitionSpeed} ease all`;
         this.outer.style.position = "relative";
         this.outer.style.overflow = "hidden";
         wrapEl(this.el, this.inner);
@@ -31,10 +40,14 @@ class TransitionHeight {
     };
 }
 
-export const init = (selector = "[data-transition-height]") => {
-    const els = document.querySelectorAll(selector);
+export const init = (options = DEFAULT_OPTIONS) => {
+    const settings = {
+        ...DEFAULT_OPTIONS,
+        ...options,
+    };
+    const els = document.querySelectorAll(settings.selector);
     for (const el of els) {
-        new TransitionHeight(el);
+        new TransitionHeight(el, settings);
     }
 };
 

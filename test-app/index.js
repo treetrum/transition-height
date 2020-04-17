@@ -1,6 +1,6 @@
 import TransitionHeight from "../dist/TransitionHeight";
 
-TransitionHeight.init();
+TransitionHeight.init({ transitionSpeed: "200ms" });
 
 class Accordion {
     constructor(el) {

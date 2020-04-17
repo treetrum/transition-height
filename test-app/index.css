@@ -1,0 +1,32 @@
+/* Container  */
+
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+/* Accordion */
+
+.accordion {
+	position: relative;
+	border: 1px solid black;
+}
+
+.accordion__title {
+	padding: 1em;
+}
+
+.accordion__body {
+	padding: 1em;
+	border-top: 1px solid black;
+}
+
+.accordion__body:not(.active) {
+	width: 100%;
+	position: absolute;
+}

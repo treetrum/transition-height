@@ -23,6 +23,7 @@ class TransitionHeight {
     init = () => {
         this.outer.classList.add("transition-height-outer");
         this.inner.classList.add("transition-height-inner");
+        this.inner.style.position = "relative";
         this.outer.style.transition = `${this.options.transitionSpeed} ease all`;
         this.outer.style.padding = `0 ${this.options.overflowOffest}px`;
         this.outer.style.margin = `0 -${this.options.overflowOffest}px`;

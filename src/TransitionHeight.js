@@ -3,6 +3,7 @@ import wrapEl from "./utils/wrapEl";
 const DEFAULT_OPTIONS = {
     selector: "[data-transition-height]",
     transitionSpeed: "500ms",
+    overflowOffest: 0,
 };
 
 class TransitionHeight {
@@ -23,6 +24,8 @@ class TransitionHeight {
         this.outer.classList.add("transition-height-outer");
         this.inner.classList.add("transition-height-inner");
         this.outer.style.transition = `${this.options.transitionSpeed} ease all`;
+        this.outer.style.padding = `0 ${this.options.overflowOffest}px`;
+        this.outer.style.margin = `0 -${this.options.overflowOffest}px`;
         this.outer.style.position = "relative";
         this.outer.style.overflow = "hidden";
         wrapEl(this.el, this.inner);

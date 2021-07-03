@@ -27,7 +27,7 @@ class TransitionHeight {
         this.outer.style.padding = `0 ${this.options.overflowOffest}px`;
         this.outer.style.margin = `0 -${this.options.overflowOffest}px`;
         this.outer.style.position = "relative";
-        this.outer.style.overflow = "visible";
+        this.outer.style.overflow = "hidden";
         wrapEl(this.el, this.inner);
         wrapEl(this.inner, this.outer);
     };
@@ -38,9 +38,6 @@ class TransitionHeight {
         if (this.height === null || outerHeight !== innerHeight) {
             this.height = innerHeight;
             this.outer.style.height = `${innerHeight}px`;
-            this.outer.style.overflow = "hidden";
-        } else {
-            this.outer.style.overflow = "visible";
         }
         requestAnimationFrame(this.tick);
     };
